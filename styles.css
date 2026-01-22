@@ -1,0 +1,176 @@
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(1200px 800px at 20% 10%, rgba(50,140,255,0.25), transparent 55%),
+    radial-gradient(1000px 700px at 80% 20%, rgba(255,70,210,0.22), transparent 55%),
+    radial-gradient(900px 700px at 50% 90%, rgba(0,255,170,0.18), transparent 60%),
+    linear-gradient(180deg, #070a14, #0b1020);
+}
+
+#level-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  margin: 0 0 18px 0;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.4;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Board */
+.container {
+  width: min(520px, 100%);
+  padding: 22px 18px;
+  margin: 0 auto;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 14px 0;
+}
+
+/* Buttons */
+.btn {
+  margin: 0;
+  width: min(180px, 34vw);
+  height: min(180px, 34vw);
+  display: inline-block;
+  border-radius: 26px;
+  border: 2px solid rgba(255,255,255,0.14);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease, opacity 0.08s ease;
+}
+
+/* Gloss overlay */
+.btn::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 45%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Better colors */
+.red {
+  background: linear-gradient(180deg, #ff4d4d, #d6002f);
+}
+
+.green {
+  background: linear-gradient(180deg, #49ffb2, #00b36b);
+}
+
+.blue {
+  background: linear-gradient(180deg, #4ea1ff, #1d4ed8);
+}
+
+.yellow {
+  background: linear-gradient(180deg, #ffe066, #f59e0b);
+}
+
+/* Hover */
+.btn:hover{
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.45);
+}
+
+/* Pressed animation */
+.pressed {
+  transform: scale(0.95);
+  filter: brightness(1.25);
+  opacity: 0.92;
+  box-shadow: 0 0 35px rgba(255,255,255,0.25);
+}
+
+/* Game Over */
+.game-over {
+  background:
+    radial-gradient(800px 500px at 50% 30%, rgba(255, 0, 70, 0.35), transparent 60%),
+    linear-gradient(180deg, #12000a, #070a14);
+}
+
+.controls{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-btn{
+  font-family: "Press Start 2P", system-ui, sans-serif;
+  font-size: 0.7rem;
+  padding: 14px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.92);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.control-btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.control-btn:active{
+  transform: scale(0.98);
+}
+
+.control-btn.danger{
+  background: rgba(255, 70, 70, 0.12);
+  border: 1px solid rgba(255, 70, 70, 0.35);
+}
+
+body{
+  transition: background 0.18s ease;
+}
+
+body.flash-red{
+  background:
+    radial-gradient(900px 600px at 50% 30%, rgba(255, 60, 60, 0.35), transparent 60%),
+    linear-gradient(180deg, #070a14, #0b1020);
+}
+
+body.flash-green{
+  background:
+    radial-gradient(900px 600px at 50% 30%, rgba(0, 255, 170, 0.28), transparent 60%),
+    linear-gradient(180deg, #070a14, #0b1020);
+}
+
+body.flash-blue{
+  background:
+    radial-gradient(900px 600px at 50% 30%, rgba(80, 150, 255, 0.30), transparent 60%),
+    linear-gradient(180deg, #070a14, #0b1020);
+}
+
+body.flash-yellow{
+  background:
+    radial-gradient(900px 600px at 50% 30%, rgba(255, 220, 100, 0.25), transparent 60%),
+    linear-gradient(180deg, #070a14, #0b1020);
+}
